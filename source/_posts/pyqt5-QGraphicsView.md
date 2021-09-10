@@ -2,14 +2,17 @@
 title: Pyqt5 QGraphicsView的一些坑
 categories: 
   - Python
+tags:
+  - pyqt
+  - qt
 ---
 
 
-## QGraphicsView
+# QGraphicsView
 
-### View
+## View
 
-#### 基本设置
+### 基本设置
 ``` python
 # 设置放大缩小时跟随鼠标
 self.setTransformationAnchor(QGraphicsView.AnchorUnderMouse)
@@ -24,7 +27,7 @@ self.viewport().grabGesture(Qt.TapGesture)
 self.viewport().setMouseTracking(True)
 ```
 
-####  监听手势来的缩放
+### 监听手势来的缩放
 
 ``` python
     def viewportEvent(self, event: QEvent):
@@ -52,7 +55,7 @@ self.viewport().setMouseTracking(True)
 ```
   
   
-### Scene
+## Scene
 
 ``` python
 self.scene.setFocusOnTouch(True)
@@ -60,10 +63,10 @@ self.scene.setFocusOnTouch(True)
 ```
 
 
-### Item
+## Item
 
 
-#### 放大镜
+### 放大镜
 
 ``` python
 width = self.magnifier_width / self.current_ratio
