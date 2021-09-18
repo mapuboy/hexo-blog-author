@@ -46,16 +46,16 @@ future: true
 highlight:
   copy: true # 复制功能
   theme: atom-dark
-  enable: true
-  line_number: true
+  enable: false
+  line_number: false
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
-  enable: false
+  enable: true
   preprocess: true
-  line_number: true
+  line_number: false
   tab_replace: ''
 
 # Home page setting
@@ -99,7 +99,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: pure
+theme: hexo-theme-matery
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -107,3 +107,7 @@ deploy:
   type: 'git'
   repo: 'git@github.com:mapuboy/mapuboy.github.io.git'
 
+# 生成拼音链接
+permalink_pinyin:
+  enable: false
+  separator: '-' # default: '-'
