@@ -26,18 +26,20 @@ echo chrome driver path: ${path}
 dv=`chromedriver -v | sed  -e 's/\..*//' -e 's/.*r //'`
 echo current chrome driver version: $dv
 
+if [ ${#path} \< 1 ] || [ $dv \< `expr $cv - 1` ] || [ $dv \> `expr $cv + 1` ]; then
+echo need to update driver!
 if [ ${#path} \< 1 ]; then
 echo No chromedriver
 path="/usr/local/bin/"
+else
+path=`echo ${path} | sed 's/chromedriver//'`
 fi
 
-if [ $dv \< `expr $cv - 1` ] || [ $dv \> `expr $cv + 1` ]; then
-echo need to update driver!
-LATEST_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${cv}) && curl --output /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_VERSION/chromedriver_mac64.zip && sudo unzip /tmp/chromedriver.zip chromedriver -d ${path} | true;
+LATEST_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE_${cv}) && curl --output /tmp/chromedriver.zip https://chromedriver.storage.googleapis.com/$LATEST_VERSION/chromedriver_mac64.zip && sudo unzip /tmp/chromedriver.zip chromedriver -d ${path};
 else
 echo no need to update driver.
-fi 
-
+fi
+chromedriver -v 
 echo 'finished'
 ```
 
@@ -53,3 +55,9 @@ echo 'finished'
 
 ```
 
+## 现有方案
+NPM上已经有了[ChromeDriver](https://www.npmjs.com/package/chromedriver)现有方案.
+> npm install -g chromedriver --detect_chromedriver_version
+
+可用这个下载到对应的node项目下. 可惜没有提供指定output路径.
+ 
