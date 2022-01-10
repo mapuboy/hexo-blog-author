@@ -49,7 +49,7 @@ fact_rec = x => x == 1 ? 1 : x * fact_rec(x-1)
 
 因为尾递归无需返回，结果只跟传入参数有关，因此只需用少量变量记录其参数变化，便能轻易改写成循环形式，因此**尾递归和循环是等价**的，下面把fact_iter改写成循环：
 
-``` typescript
+``` js
 function fact_loop(x)
 {
     var r = 1

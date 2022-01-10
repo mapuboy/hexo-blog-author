@@ -121,7 +121,7 @@ Good! Now you will see a **node_modules** folder and a **package-lock.json** in 
 
 In order to compile Typescript we also need a **tsconfig.json** file so let’s add it to the project root:
 
-``` JSON
+``` json
 {  
   "compilerOptions": {  
     "target": "es5",  
@@ -205,7 +205,7 @@ npm install --save-dev prettier tslint tslint-config-prettier
 
 In the root, add a **tslint.json**:
 
-``` JSON
+``` json
 {  
    "extends": ["tslint:recommended", "tslint-config-prettier"]  
 }
@@ -213,7 +213,7 @@ In the root, add a **tslint.json**:
 
 And a **.prettierrc**
 
-``` JSON
+``` json
 {  
   "printWidth": 120,  
   "trailingComma": "all",  
@@ -223,7 +223,7 @@ And a **.prettierrc**
 
 Finally, add the **lint-** and **format** scripts to **package.json**
 
-``` 
+``` json 
 "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",  
 "lint": "tslint -p tsconfig.json"
 ```
@@ -289,7 +289,7 @@ Cool! Now we need to configure Jest. You can choose to write a `jest` section to
 
 Create a new file in the root and name it **jestconfig.json:**
 
-``` JSON
+``` json
 {  
   "transform": {  
     "^.+\\.(t|j)sx?$": "ts-jest"  
@@ -301,7 +301,7 @@ Create a new file in the root and name it **jestconfig.json:**
 
 Remove the old test script in **package.json** and change it to:
 
-``` JSON
+``` json
 "test": "jest --config jestconfig.json",
 ```
 
@@ -375,7 +375,7 @@ For an awesome package, we should of course automate as much as possible. We’r
 
 This is how my scripts section in **package.json** looks like:
 
-``` JSON
+``` json
 "scripts": {  
    "test": "jest --config jestconfig.json",  
    "build": "tsc",  
@@ -393,7 +393,7 @@ This is how my scripts section in **package.json** looks like:
 
 It’s finally time to finish up our awesome package! First, we need to make some changes to our **package.json** again:
 
-``` JSON
+``` json
 {  
    "name": "my-awesome-greeter",  
    "version": "1.0.0",  

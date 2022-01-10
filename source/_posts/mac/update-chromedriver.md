@@ -17,7 +17,7 @@ tags:
 写个shell的脚本来自动升级chromedriver的版本, 当然也可以用一些node的包来升级到最新或是指定driver的版本, 但是我查了一下, 基本上没有自动获取浏览器版本并升级相应的版本.  
 花点时间自己写个适合自己的脚本, 不求人
 
-``` sh
+``` bash
 chrome=`/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version`
 cv=`echo ${chrome} | sed -e 's/.* //' -e 's/\..*//'`
 echo current chrome browser version: ${cv}
@@ -46,7 +46,7 @@ echo 'finished'
 ### selenium-standalone
 如果你是用的[selenium-standalone](https://www.npmjs.com/package/selenium-standalone),那么有时候这个包的收录的driver版本的不够新. 用以下代码
 
-``` sh
+``` bash
 chrome=$(/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --version)
 cv=$(echo ${chrome} | sed -e 's/.* //' -e 's/\..*//')
 echo current chrome browser version: ${cv}
